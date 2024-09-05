@@ -12,6 +12,6 @@ elif(number < 0):
 elif(number > 0):
     posetive = (posetive % 10)
     if(posetive > 5):
-        print(f"Last digit of {number} is {posetive} and is  greater than 5")
+        print(f"Last digit of {number} is {posetive} and is greater than 5")
     elif(posetive < 6):
         print(f"Last digit of {number} is {posetive} and is less than 6 and not 0")
