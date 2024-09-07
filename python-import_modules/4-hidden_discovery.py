@@ -6,6 +6,3 @@ def sortlist(perline):
         if (i[0:2] == "__"):
             continue
         print("{}".format(i))
-if __name__ == "__main__":
-    import hidden_4
-    sortlist(hidden_4)
