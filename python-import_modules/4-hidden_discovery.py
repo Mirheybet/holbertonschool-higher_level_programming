@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-if (__name__ == "__main__"):
-    import hidden_4
-    per_line = dir(hidden_4)
-    per_line = sorted(per_line)
-    for i in per_line:
+def sortlist(perline):
+    per_lines = dir(perline)
+    per_lines = sorted(per_lines)
+    for i in per_lines:
         if (i[0:2] == "__"):
             continue
-        print(i)
+        print("{}".format(i))
+if __name__ == "__main__":
+    import hidden_4
+    sortlist(hidden_4)
