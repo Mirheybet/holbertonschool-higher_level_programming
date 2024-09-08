@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-import sys
+from sys import argv, exit
 if (__name__ == "__main__"):
-    import calculator_1
-    if len(sys.argv) - 1 != 3:
+    from calculator_1 import add, sub, mul, div
+    if len(argv) - 1 != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        sys.exit(1)
+        exit(1)
 
-    ops = {"+": calculator_1.add, "-": calculator_1.sub, "*":calculator_1.mul, "/": calculator_1.div}
-    if sys.argv[2] not in list(ops.keys()):
+    ops = {"+": add, "-": sub, "*": mul, "/": div}
+    if argv[2] not in list(ops.keys()):
         print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
+        exit(1)
+    a = int(argv[1])
+    b = int(argv[3])
+    print("{} {} {} = {}".format(a, argv[2], b, ops[argv[2]](a, b)))
