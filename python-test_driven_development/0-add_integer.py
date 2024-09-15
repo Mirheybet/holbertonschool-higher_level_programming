@@ -5,6 +5,7 @@ It handles both integer and float inputs by casting floats to integers.
 Raises TypeError if either argument is not an integer or a float.
 """
 
+
 def add_integer(a, b=98):
     """Return the integer addition of a and b.
 
