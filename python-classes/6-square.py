@@ -1,71 +1,58 @@
 #!/usr/bin/python3
-"""
-Write a class Square that defines a square by: (based on 2-square.py)
-"""
+"""Define a class Square with private instance attribute size."""
 
 
-class Square():
-    """
-    Write a class Square that defines a square by: (based on 2-square.py)
-    """
-    def __init__(self, size=0, position=(0, 0)):
-
-        """
-        size must be an integer
-        """
+class Square:
+    """Square class with private attribute size"""
+    def __init__(self, size=0, position=(0, 0)) -> None:
+        """Initialize Square with size attribute"""
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
-
-        """
-        size must be >= 0
-        """
-        if (size < 0):
+        elif size < 0:
             raise ValueError("size must be >= 0")
+        if not isinstance(position, tuple) or len(position) != 2 or \
+                not all(isinstance(i, int) for i in position) or \
+                not all(i >= 0 for i in position):
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__size = size
+        self.__position = position
 
     def area(self):
-        self.__size = self.__size ** 2
-        return self.__size
+        """Area definer"""
+        return self.__size ** 2
 
     @property
     def size(self):
-        return (self.__size)
+        return self.__size
 
     @size.setter
     def size(self, value):
-        """
-        size must be an integer
-        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-
-        """
-        size must be >= 0
-        """
-        if (self.__size < 0):
+        elif self.__size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
-
-    def my_print(self):
-        """
-        if size is equal to 0, print an empty line
-        """
-        if (self.__size == 0):
-            print()
-        """
-        hat prints in stdout the square with the character #
-        """
-        for i in range(self.__size):
-            print("#" * self.__size)
+        else:
+            self.__size = value
 
     @property
     def position(self):
-        return (self.__position)
+        return self.__position
 
     @position.setter
     def position(self, value):
-        """
-        position must be a tuple of 2 positive integers
-        """
-        if not isinstance(value, tuple):
+        if not isinstance(value, tuple) or len(value) != 2 or \
+                not all(isinstance(i, int) for i in value) or \
+                not all(i >= 0 for i in value):
             raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
+
+    def my_print(self):
+        """Print square with #"""
+        if self.__size == 0:
+            print()
+        else:
+            for i in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                print(" " * self.__position[0] + "#" * self.__size)
