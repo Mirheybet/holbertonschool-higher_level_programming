@@ -45,3 +45,11 @@ class Square():
         if (self.__size < 0):
             raise ValueError("size must be >= 0")
         self.__size = value
+
+    def my_print(self):
+        """
+        if size is equal to 0, print an empty line
+        """
+        if (self.__size == 0):
+            print()
+        print("#" * self.__size)
