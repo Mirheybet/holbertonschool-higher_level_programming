@@ -3,6 +3,7 @@
 lookup class
 """
 
+
 def lookup(obj):
     """
     return dir obj
