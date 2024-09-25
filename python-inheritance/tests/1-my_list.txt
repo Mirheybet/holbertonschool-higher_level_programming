@@ -1,0 +1,20 @@
+Test Case 1: Integer list sorting
+Input: [3, 1, 2]
+Expected Output: [1, 2, 3]
+
+Test Case 2: String list sorting
+Input: ['banana', 'apple', 'cherry']
+Expected Output: ['apple', 'banana', 'cherry']
+
+Test Case 3: Empty list
+Input: []
+Expected Output: []
+
+Test Case 4: Negative integers and zero
+Input: [-1, -3, 0, 2]
+Expected Output: [-3, -1, 0, 2]
+
+Test Case 5: Floating point numbers
+Input: [3.1, 2.4, 5.6, 1.9]
+Expected Output: [1.9, 2.4, 3.1, 5.6]
+
