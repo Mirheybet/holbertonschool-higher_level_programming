@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-from file to json
+File
 """
-import json as js
+import json
 
 
 def save_to_json_file(my_obj, filename):
     """
-    duump with write
+    Function of Object to a text file
     """
-    with open("my_dict.json", 'w', encoding= 'utf-8') as file:
-        file = file.write(js.dumps(my_obj))
-        return file
+    with open(filename, 'w', encoding='utf-8') as f:
+        a = json.dumps(my_obj)
+        return f.write(a)
