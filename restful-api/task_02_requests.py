@@ -24,9 +24,7 @@ def fetch_and_save_posts():
     response = requests.get(posts_url)
     print("Status Code:", response.status_code)
 
-    if (response.status_code != 200):
-        print("The CSV file was not created.")
-    else:
+    if (response.status_code == 200):
         responses = response.json()
         structured_posts = [{
             'id': response['id'],
@@ -38,3 +36,5 @@ def fetch_and_save_posts():
             writer.writeheader()
             writer.writerows(structured_posts)
             print("FILE:posts.csv created!")
+    else:
+        print("The CSV file was not created.")
