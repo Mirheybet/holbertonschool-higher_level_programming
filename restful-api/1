@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+import json, requests
+
+def fetch_and_print_posts():
+    posts_url = "https://jsonplaceholder.typicode.com/posts"
+
+    response_code = requests.get(posts_url)
+    
+    if(response_code.status_code == 200):
+        print("Status Code:", response_code)
+fetch_and_print_posts()
