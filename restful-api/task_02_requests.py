@@ -25,7 +25,7 @@ def fetch_and_save_posts():
     print("Status Code:", response.status_code)
 
     if (response.status_code != 200):
-        print("FAIL: def fetch_and_save_posts()")
+        print("The CSV file was not created.")
     else:
         responses = response.json()
         structured_posts = [{
