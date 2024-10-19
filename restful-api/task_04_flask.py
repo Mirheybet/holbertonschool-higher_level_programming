@@ -48,5 +48,16 @@ def add_user():
         "user": users[usernames]
     }), 201
         
+@app.route("/delete_user/<username>", methods=["DELETE"])
+def delete_user(username):
+    # Kullanıcı var mı kontrol et
+    if username in users:
+        # Kullanıcıyı sil
+        del users[username]
+        return jsonify({"message": f"User '{username}' has been deleted"}), 200
+    else:
+        return jsonify({"error": "User not found"}), 404
+
+        
 if __name__ == "__main__":
     app.run(debug=True)
