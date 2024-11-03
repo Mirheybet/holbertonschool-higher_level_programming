@@ -1,12 +1,22 @@
 #!/usr/bin/python3
 """
-Connect DB  , check cli 
+Connect DB , check cli
 """
-import sys
-import MySQLdb
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
-    c.execute("SELECT * FROM `states`")
-    [print(state) for state in c.fetchall() if state[1] == sys.argv[4]]
+    import MySQLdb
+    from sys import argv
+
+    db = MySQLdb.connect(
+            user=argv[1],
+            passwd=argv[2],
+            db=argv[3]
+    )
+    mycursor = db.cursor()
+    try:
+        mycursor.execute("SELECT * FROM states")
+    except MySQLdb.Error as e:
+        print(e)
+    [print(state) for state in mycursor.fetchall() if state[1] == argv[4]]
+    mycursor.close()
+    db.close()
